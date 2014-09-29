@@ -1,0 +1,13 @@
+The input data would be planning data only and not part of authorizing the bank to make recurring payments transfer etc.
+
+1.      Allow input of dollar amounts for recurring bills, payments deposits etc.
+
+2.      Allow recurring payments/deposits to be tagged as monthly, weekly, quarterly semiannually, annually.
+
+3.      Allow input of the date the bill/withdrawal/deposit will occur (day(s) of month, annual date, etc.)
+
+4.      Allow input of one time deposit/withdrawal (non-recurring)
+
+5.      Show a forecasted balance for several days into the future.  Calendar view?
+
+6.      Flag any future payment/withdrawal that would cause an overdraft
