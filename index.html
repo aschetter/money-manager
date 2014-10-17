@@ -5,6 +5,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Money Manager</title>
+    <!-- Customized CSS page -->
+    <link rel="stylesheet" href="main.css">
     <!-- Fullcalendar plug-in CSS -->
     <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css">
 </head>
@@ -12,6 +14,7 @@
 <body>
 
     <div id="calendar"></div>
+    <button id="month">Back to Month</button>
 
     <!-- jQuery -->
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
@@ -33,9 +36,16 @@
         dayClick: function(date, jsEvent, view) {
             $('#calendar').fullCalendar('gotoDate', date);
             $('#calendar').fullCalendar('changeView', 'basicDay');
+            $('#month').show();
         }
     });
 
+    $('#month').on('click', function(){
+        $('#calendar').fullCalendar('changeView', 'month');
+        $('#month').hide();
+    });
+
+        
     </script>
 </body>
 
