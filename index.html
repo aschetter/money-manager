@@ -32,6 +32,18 @@
             right: 'next'
         },
 
+        // Test event objects
+        events: [
+            {
+                title: 'Electric Bill',
+                start: '2014-10-10',
+            },
+            {
+                title: 'Paycheck',
+                start: '2014-10-01',
+            }
+        ],
+
         // Switch to day view when a date is clicked
         dayClick: function(date, jsEvent, view) {
             $('#calendar').fullCalendar('gotoDate', date);
@@ -40,6 +52,7 @@
         }
     });
 
+    // Button on basicDay view to return back to month view
     $('#month').on('click', function(){
         $('#calendar').fullCalendar('changeView', 'month');
         $('#month').hide();
