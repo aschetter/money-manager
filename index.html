@@ -14,6 +14,12 @@
 <body>
 
     <div id="calendar"></div>
+    <div id="event">
+        Name: <input type="text" id="title"><br>
+        Date: <input type="text" id="start"><br>
+        Cash Flow: <input type="text" id="cashFlow"><br>
+        <button id="addEvent">Add Event</button>
+    </div>
     <button id="month">Back to Month</button>
 
     <!-- jQuery -->
@@ -23,40 +29,52 @@
     <!-- Fullcallendar JS -->
     <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
     <script type="text/javascript">
-    $('#calendar').fullCalendar({
-
-        // Header styling for month view
-        header: {
-            left: 'prev',
-            center: 'title',
-            right: 'next'
-        },
 
         // Test event objects
-        events: [
-            {
-                title: 'Electric Bill',
-                start: '2014-10-10',
+        var events = [
+            // {
+            //     title: 'Electric Bill',
+            //     start: '2014-10-10',
+            //     cashFlow: -100
+            // }
+        ];
+
+
+        $('#calendar').fullCalendar({
+
+            // Header styling for month view
+            header: {
+                left: 'prev',
+                center: 'title',
+                right: 'next'
             },
-            {
-                title: 'Paycheck',
-                start: '2014-10-01',
+
+            events: events,
+
+            // Switch to day view when a date is clicked
+            dayClick: function(date, jsEvent, view) {
+                $('#calendar').fullCalendar('gotoDate', date);
+                $('#calendar').fullCalendar('changeView', 'basicDay');
+                $('#month').show();
             }
-        ],
+        });
 
-        // Switch to day view when a date is clicked
-        dayClick: function(date, jsEvent, view) {
-            $('#calendar').fullCalendar('gotoDate', date);
-            $('#calendar').fullCalendar('changeView', 'basicDay');
-            $('#month').show();
-        }
-    });
+        // Button on basicDay view to return back to month view
+        $('#month').on('click', function(){
+            $('#calendar').fullCalendar('changeView', 'month');
+            $('#month').hide();
+        });
 
-    // Button on basicDay view to return back to month view
-    $('#month').on('click', function(){
-        $('#calendar').fullCalendar('changeView', 'month');
-        $('#month').hide();
-    });
+        $('#addEvent').on('click', function () {
+            var title = $('#title').val();
+            var start = $('#start').val();
+            var cashFlow = $('#cashFlow').val();
+            $('#calendar').fullCalendar('renderEvent', { 
+                title: title,
+                start: start,
+                cashFlow: cashFlow
+            }, true);
+        });
 
         
     </script>
