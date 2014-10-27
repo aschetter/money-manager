@@ -15,7 +15,7 @@
 
     <div id="calendar"></div>
     <div id="event">
-        Name: <input type="text" id="title"><br>
+        Transaction: <input type="text" id="title"><br>
         Date: <input type="text" id="start"><br>
         Cash Flow: <input type="text" id="cashFlow"><br>
         <button id="addEvent">Add Event</button>
@@ -38,7 +38,6 @@
             //     cashFlow: -100
             // }
         ];
-
 
         $('#calendar').fullCalendar({
 
@@ -65,18 +64,29 @@
             $('#month').hide();
         });
 
+        // Add an event to the calendar
         $('#addEvent').on('click', function () {
             var title = $('#title').val();
             var start = $('#start').val();
             var cashFlow = $('#cashFlow').val();
+            var color = '';
+
+            // Set event color based on cash flow
+            if (cashFlow < 0) {
+                color = 'red';
+            } else {
+                color = 'green';
+            }
+
+            // Render the transaction on the calendar
             $('#calendar').fullCalendar('renderEvent', { 
                 title: title,
                 start: start,
-                cashFlow: cashFlow
+                cashFlow: cashFlow,
+                color: color
             }, true);
         });
 
-        
     </script>
 </body>
 
