@@ -1,7 +1,7 @@
 // Test event objects
 var events = [
     {
-        title: 'Electric Bill',
+        title: 'Electric Bill: $100',
         start: '2014-10-26',
         cashFlow: -100,
         color: 'red'
@@ -52,6 +52,16 @@ $('#addEvent').on('click', function () {
 
     // Ensure all values are filled in
     if (title != '' && start != '' && cashFlow != '') {
+
+        // Add the transaction to the events array
+        var transaction = {
+            title: title,
+            start: start,
+            cashFlow: cashFlow,
+            color: color
+        };
+
+        events.push(transaction);
         
         // Set event color based on cash flow
         if (cashFlow < 0) {
@@ -62,7 +72,7 @@ $('#addEvent').on('click', function () {
 
         // Render the transaction on the calendar
         $('#calendar').fullCalendar('renderEvent', { 
-            title: title,
+            title: title + ': $' + cashFlow,
             start: start,
             cashFlow: cashFlow,
             color: color
