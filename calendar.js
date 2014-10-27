@@ -1,6 +1,7 @@
 // Test event objects
 var events = [
     {
+        id: 1,
         title: 'Electric Bill: $100',
         start: '2014-10-26',
         cashFlow: -100,
@@ -17,17 +18,20 @@ $('#calendar').fullCalendar({
         right: 'next'
     },
 
+    events: events,
+
     // Tooltip displays the cashFlow of an event on mouseOver
     eventRender: function(event, element) {
-        element.attr('title', event.cashFlow);
+        element.attr('title', event.id);
+    },
+
+    eventClick: function() {
     },
 
     dayRender: function(date, cell) {
         // cell.css('background-color', 'red');
         // cell.css('border', 'solid black');
     },
-
-    events: events,
 
     // Switch to day view when a date is clicked
     dayClick: function(date, jsEvent, view) {
@@ -45,6 +49,9 @@ $('#month').on('click', function(){
 
 // Add an event to the calendar
 $('#addEvent').on('click', function () {
+
+    // Development random id generator
+    var id = Math.floor(Math.random()*10000000001);
     var title = $('#title').val();
     var start = $('#start').val();
     var cashFlow = $('#cashFlow').val();
@@ -53,15 +60,16 @@ $('#addEvent').on('click', function () {
     // Ensure all values are filled in
     if (title != '' && start != '' && cashFlow != '') {
 
-        // Add the transaction to the events array
-        var transaction = {
+        // Add the event to the events array
+        var event = {
+            id: id,
             title: title,
             start: start,
             cashFlow: cashFlow,
             color: color
         };
 
-        events.push(transaction);
+        events.push(event);
         
         // Set event color based on cash flow
         if (cashFlow < 0) {
@@ -70,8 +78,9 @@ $('#addEvent').on('click', function () {
             color = 'green';
         }
 
-        // Render the transaction on the calendar
-        $('#calendar').fullCalendar('renderEvent', { 
+        // Render the event on the calendar
+        $('#calendar').fullCalendar('renderEvent', {
+            id: id,
             title: title + ': $' + cashFlow,
             start: start,
             cashFlow: cashFlow,
