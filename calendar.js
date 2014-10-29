@@ -18,6 +18,7 @@ $('#calendar').fullCalendar({
         right: 'next'
     },
 
+    // Load events array
     events: events,
 
     // Tooltip displays the cashFlow of an event on mouseOver
@@ -26,6 +27,7 @@ $('#calendar').fullCalendar({
     },
 
     eventClick: function() {
+        $('#dialog').dialog();
     },
 
     dayRender: function(date, cell) {

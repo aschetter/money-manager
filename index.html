@@ -5,24 +5,33 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Money Manager</title>
-    <!-- Customized CSS page -->
-    <link rel="stylesheet" href="main.css">
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css">
     <!-- Fullcalendar plug-in CSS -->
     <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css">
+    <!-- Customized CSS page -->
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
-    <div id="event">
+    <!-- Container div for calendar -->
+    <div id="calendar"></div>
+
+    <!-- Button to change dayView back to monthView -->
+    <button id="month">Back to Month</button>
+
+    <!-- Dialog box to add a transaction on the calendar -->
+    <div id="dialog" title="Add Transaction">
         Transaction: <input type="text" id="title"><br>
         Date: <input type="text" id="start"><br>
         Cash Flow: <input type="text" id="cashFlow"><br>
-        <button id="addEvent">Add Event</button>
+        <button id="addEvent">Add Transaction</button>
     </div>
-    <button id="month">Back to Month</button>
-    <div id="calendar"></div>
 
     <!-- jQuery -->
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <!-- jQuery UI-->
+    <script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.js"></script>
     <!-- Moment JS -->
     <script type="text/javascript" src="bower_components/moment/moment.js"></script>
     <!-- Fullcallendar JS -->
