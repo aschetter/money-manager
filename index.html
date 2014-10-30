@@ -18,15 +18,26 @@
     <div id="calendar"></div>
 
     <!-- Button to change day view back to month view -->
-    <!-- <button id="month">Back to Month</button> -->
+    <button id="month">Back to Month</button>
 
     <!-- Dialog box to edit a transaction on the calendar -->
-    <div id="editEventDialog" title="Add Transaction">
-        Transaction: <input type="text" id="title"><br>
-        <!-- Date: <input type="text" id="start"><br> -->
-        Cash Flow: <input type="text" id="cashFlow"><br>
-        <button id="editEvent">Edit Transaction</button>
+    <div id="editEventDialog">
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">Edit</a></li>
+                <li><a href="#tabs-2"></a></li>
+            </ul>
+            <div id="tabs-1">
+                Transaction: <input type="text" id="title"><br>
+                <!-- Date: <input type="text" id="start"><br> -->
+                Cash Flow: <input type="text" id="cashFlow"><br>
+                <button id="editEvent">Edit Transaction</button>
+            </div>
+            <div id="tabs-2">
+            </div>
+        </div>
     </div>
+
 
     <!-- jQuery -->
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
