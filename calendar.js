@@ -3,7 +3,7 @@ var events = [
     {
         id: 1,
         title: 'Electric Bill: $100',
-        start: '2014-10-26',
+        start: '2014-10-15',
         cashFlow: -100,
         color: 'red'
     }
@@ -18,16 +18,19 @@ $('#calendar').fullCalendar({
         right: 'next'
     },
 
+    // Allow dragging events between days
+    editable: true,
+
     // Load events array
     events: events,
 
     // Tooltip displays the cashFlow of an event on mouseOver
     eventRender: function(event, element) {
-        element.attr('title', event.id);
+        element.attr('title', event.start.format());
     },
 
     eventClick: function() {
-        $('#dialog').dialog();
+        $('#addEventDialog').dialog();
     },
 
     dayRender: function(date, cell) {
@@ -37,17 +40,17 @@ $('#calendar').fullCalendar({
 
     // Switch to day view when a date is clicked
     dayClick: function(date, jsEvent, view) {
-        $('#calendar').fullCalendar('gotoDate', date);
-        $('#calendar').fullCalendar('changeView', 'basicDay');
-        $('#month').show();
+        // $('#calendar').fullCalendar('gotoDate', date);
+        // $('#calendar').fullCalendar('changeView', 'basicDay');
+        // $('#month').show();
     }
 });
 
 // Button on basicDay view to return back to month view
-$('#month').on('click', function(){
-    $('#calendar').fullCalendar('changeView', 'month');
-    $('#month').hide();
-});
+// $('#month').on('click', function(){
+//     $('#calendar').fullCalendar('changeView', 'month');
+//     $('#month').hide();
+// });
 
 // Add an event to the calendar
 $('#addEvent').on('click', function () {

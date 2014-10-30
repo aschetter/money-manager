@@ -1,3 +1,7 @@
-#month, #dialog {
+#month, #dialog, #addEventDialog {
     display: none;
+}
+
+#calendar {
+    width: 75%;
 }
