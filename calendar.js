@@ -48,11 +48,12 @@ $('#calendar').fullCalendar({
         var endIndex = title.indexOf(':');
         var transaction = title.slice(0, endIndex);
 
-        // Set the default form values and open dialog
+        // Set the default form values
         $('#title').attr('value', transaction);
         $('#cashFlow').attr('value', event.cashFlow);
+
+        // Open the dialog with tabs
         $('#tabs').tabs();
-        $('#tabs').show();
         $('#editEventDialog').dialog({modal: true}, event);
     },
 
@@ -70,7 +71,7 @@ $('#calendar').fullCalendar({
 });
 
 // Button on basicDay view to return back to month view
-$('#month').on('click', function(){
+$('#month').on('click', function() {
     $('#calendar').fullCalendar('changeView', 'month');
     $('#month').hide();
 });
@@ -95,14 +96,26 @@ $('#editEvent').on('click', function() {
         // Render new event info
         $('#calendar').fullCalendar('updateEvent', selectedEvent);
         
-        // Clear event holder variable 
+        // Clear variables 
         selectedEvent = undefined;
-
-        // Clear default form values and close dialog
         $('#title').attr('value', undefined);
         $('#cashFlow').attr('value', undefined);
+
+        // Close dialog
         $('#editEventDialog').dialog('close');
     }
+});
+
+// Remove an event from the calendar
+$('#deleteEvent').on('click', function() {
+
+    // Pull event id and remove event
+    var id = selectedEvent.id;
+    $('#calendar').fullCalendar( 'removeEvents', id);
+
+    // Clear event holder variable and close dialog
+    selectedEvent = undefined;
+    $('#editEventDialog').dialog('close');
 });
 
 // Add an event to the calendar
