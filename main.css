@@ -5,3 +5,17 @@
 #calendar {
     width: 75%;
 }
+
+input {
+    margin-bottom: 1.25rem;
+}
+
+#deleteTab {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#editEvent {
+    width: 80%;
+    margin-left: 10%;
+}
