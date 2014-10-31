@@ -54,7 +54,11 @@ $('#calendar').fullCalendar({
 
         // Open the dialog with tabs
         $('#tabs').tabs();
-        $('#editEventDialog').dialog({modal: true}, event);
+        $('#editEventDialog').dialog({
+            modal: true,
+            draggable: false,
+            resizable: false
+        }, event);
     },
 
     dayRender: function(date, cell) {
