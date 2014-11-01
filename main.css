@@ -6,6 +6,10 @@
     width: 75%;
 }
 
+#addEventForm {
+    width: 25%;
+}
+
 input {
     margin-bottom: 1.25rem;
 }

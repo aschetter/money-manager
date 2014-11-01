@@ -17,12 +17,34 @@
     <!-- Container div for calendar -->
     <div id="calendar"></div>
 
+    <div id="addEventForm">
+        <div id="addTabs">
+            <ul>
+                <li><a href="#singleTab">Single</a></li>
+                <li><a href="#recurringTab">Recurring</a></li>
+            </ul>
+            <div id="singleTab">
+                Transaction: <input type="text" id="singleTitle"><br>
+                Date: <br><input type ="text" id="Singledate"><br>
+                Cash Flow: <input type="text" id="SinglecashFlow"><br>
+                <button id="addSingleEvent">Add Transaction</button>
+            </div>
+            <div id="recurringTab">
+                Transaction: <input type="text" id="recurringTitle"><br>
+                Start Date: <input type ="text" id="recurringStartDate"><br>
+                End Date: <input type ="text" id="recurringEndDate"><br>
+                Cash Flow: <input type="text" id="recurringCashFlow"><br>
+                <button id="addRecurringEvent">Add Transactions</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Button to change day view back to month view -->
     <button id="month">Back to Month</button>
 
     <!-- Dialog box to edit a transaction on the calendar -->
     <div id="editEventDialog">
-        <div id="tabs">
+        <div id="editTabs">
             <ul>
                 <li><a href="#editTab">Edit</a></li>
                 <li><a href="#deleteTab">Delete</a></li>

@@ -1,3 +1,6 @@
+// Inialize tabs for creating an event
+$('#addTabs').tabs();
+
 // Hold event object to pass from event click to dialog form
 var selectedEvent;
 
@@ -34,7 +37,7 @@ $('#calendar').fullCalendar({
     // Load events array
     events: events,
 
-    // Tooltip displays the cashFlow of an event on mouseOver
+    // Tooltip displays the date of an event on mouseOver
     eventRender: function(event, element) {
         element.attr('title', event.start.format());
     },
@@ -53,7 +56,7 @@ $('#calendar').fullCalendar({
         $('#cashFlow').attr('value', event.cashFlow);
 
         // Open the dialog with tabs
-        $('#tabs').tabs();
+        $('#editTabs').tabs();
         $('#editEventDialog').dialog({
             modal: true,
             draggable: false,
