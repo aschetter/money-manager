@@ -1,6 +1,7 @@
 // Inialize tabs for creating an event
 $('#addTabs').tabs();
 
+// Inialize radio buttons for determining frequency of recurring events
 $('#frequency').buttonset();
 
 // Inialize datepickers to add single and recurring events
@@ -143,8 +144,6 @@ $('#addSingleEvent').on('click', function() {
     var title = $('#singleTitle').val();
     start = $('#singleDate').val();
     var cashFlow = $('#singleCashFlow').val();
-
-
 
     // Ensure all values are filled in
     if (title != '' && start != '' && cashFlow != '') {

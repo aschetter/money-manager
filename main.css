@@ -2,13 +2,36 @@
     display: none;
 }
 
-#calendar {
-    width: 75%;
+h1 {
+    text-align: center;
+}
+
+#addEventForm {
+    margin-bottom: 3rem;
+}
+
+#frequency {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#recurringValues {
+    text-align: left;
+}
+
+/*#frequency {
+    margin: 0 auto;
+}*/
+
+/*#calendar {
+    width: 70%;
+    float: left;
 }
 
 #addEventForm {
     width: 25%;
-}
+    float: right;
+}*/
 
 input {
     margin-bottom: 1.25rem;

@@ -14,9 +14,10 @@
 </head>
 
 <body>
-    <!-- Container div for calendar -->
-    <div id="calendar"></div>
 
+    <h1>Money Manager</h1>
+
+    <!-- Containter div for form to add events -->
     <div id="addEventForm">
         <div id="addTabs">
             <ul>
@@ -26,15 +27,14 @@
 
             <!-- Form to add a single event -->
             <div id="singleTab">
-                Transaction: <input type="text" id="singleTitle"><br>
-                Date: <br><input type ="text" id="singleDate"><br>
-                Cash Flow: <input type="text" id="singleCashFlow"><br>
+                Transaction: <input type="text" id="singleTitle">
+                Date: <input type ="text" id="singleDate">
+                Cash Flow: <input type="text" id="singleCashFlow">
                 <button id="addSingleEvent">Add Transaction</button>
             </div>
 
             <!-- Form to add a recurring event -->
             <div id="recurringTab">
-                <p>Frequency</p>
 
                 <!-- Tabs to indicate event frequency -->
                 <div id="frequency">
@@ -47,15 +47,18 @@
 
                 <!-- Recurring event input values -->
                 <div id="recurringValues">
-                    Transaction: <input type="text" id="recurringTitle"><br>
-                    Start Date: <input type ="text" id="recurringStartDate"><br>
-                    End Date: <input type ="text" id="recurringEndDate"><br>
-                    Cash Flow: <input type="text" id="recurringCashFlow"><br>
+                    Transaction: <input type="text" id="recurringTitle">
+                    Start Date: <input type ="text" id="recurringStartDate">
+                    End Date: <input type ="text" id="recurringEndDate">
+                    Cash Flow: <input type="text" id="recurringCashFlow">
                     <button id="addRecurringEvent">Add Transactions</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Container div for calendar -->
+    <div id="calendar"></div>
 
     <!-- Button to change day view back to month view -->
     <button id="month">Back to Month</button>
