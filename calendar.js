@@ -192,7 +192,7 @@ $('#addRecurringEvent').on('click', function() {
     var cashFlow = $('#recurringCashFlow').val();
 
     // Ensure all values are filled in
-    if (title != '' && start != '' && cashFlow != '') {
+    if (title != '' && start != '' && end != '' && cashFlow != '') {
 
 //         // Add the event to the events array
 //         var event = {
