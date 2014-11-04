@@ -1,6 +1,8 @@
 // Inialize tabs for creating an event
 $('#addTabs').tabs();
 
+$('#frequency').buttonset();
+
 // Inialize datepickers to add single and recurring events
 $('#singleDate').datepicker({dateFormat: "yy-mm-dd"});
 $('#recurringStartDate').datepicker({dateFormat: "yy-mm-dd"});
@@ -130,21 +132,19 @@ $('#deleteEvent').on('click', function() {
     $('#editEventDialog').dialog('close');
 });
 
-
+var start;
 // Add a single event to the calendar
 $('#addSingleEvent').on('click', function() {
 
     // Development random id generator
     var id = Math.floor(Math.random()*10000000001);
-    var title = $('#singleTitle').val();
-    var start = $('#singleDate').val();
-    var cashFlow = $('#singleCashFlow').val();
-    var color = '';
 
-    console.log(id);
-    console.log(title);
-    console.log(start);
-    console.log(cashFlow);
+    // Pull form input values
+    var title = $('#singleTitle').val();
+    start = $('#singleDate').val();
+    var cashFlow = $('#singleCashFlow').val();
+
+
 
     // Ensure all values are filled in
     if (title != '' && start != '' && cashFlow != '') {
@@ -161,6 +161,8 @@ $('#addSingleEvent').on('click', function() {
 //         events.push(event);
         
         // Set event color based on cash flow
+        var color = '';
+
         if (cashFlow < 0) {
             color = 'red';
         } else {
@@ -172,6 +174,52 @@ $('#addSingleEvent').on('click', function() {
             id: id,
             title: title + ': $' + cashFlow,
             start: start,
+            cashFlow: cashFlow,
+            color: color
+        }, true);
+    }
+});
+
+// Add a recurring event to the calendar
+$('#addRecurringEvent').on('click', function() {
+
+    // Development random id generator
+    var id = Math.floor(Math.random()*10000000001);
+
+    var title = $('#recurringTitle').val();
+    var start = $('#recurringStartDate').val();
+    var end = $('#recurringEndDate').val();
+    var cashFlow = $('#recurringCashFlow').val();
+
+    // Ensure all values are filled in
+    if (title != '' && start != '' && cashFlow != '') {
+
+//         // Add the event to the events array
+//         var event = {
+//             id: id,
+//             title: title,
+//             start: start,
+//             cashFlow: cashFlow,
+//             color: color
+//         };
+
+//         events.push(event);
+        
+        // Set event color based on cash flow
+        var color = '';
+
+        if (cashFlow < 0) {
+            color = 'red';
+        } else {
+            color = 'green';
+        }
+
+        // Render the event on the calendar
+        $('#calendar').fullCalendar('renderEvent', {
+            id: id,
+            title: title + ': $' + cashFlow,
+            start: start,
+            end: end,
             cashFlow: cashFlow,
             color: color
         }, true);

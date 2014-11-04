@@ -23,18 +23,36 @@
                 <li><a href="#singleTab">Single</a></li>
                 <li><a href="#recurringTab">Recurring</a></li>
             </ul>
+
+            <!-- Form to add a single event -->
             <div id="singleTab">
                 Transaction: <input type="text" id="singleTitle"><br>
                 Date: <br><input type ="text" id="singleDate"><br>
                 Cash Flow: <input type="text" id="singleCashFlow"><br>
                 <button id="addSingleEvent">Add Transaction</button>
             </div>
+
+            <!-- Form to add a recurring event -->
             <div id="recurringTab">
-                Transaction: <input type="text" id="recurringTitle"><br>
-                Start Date: <input type ="text" id="recurringStartDate"><br>
-                End Date: <input type ="text" id="recurringEndDate"><br>
-                Cash Flow: <input type="text" id="recurringCashFlow"><br>
-                <button id="addRecurringEvent">Add Transactions</button>
+                <p>Frequency</p>
+
+                <!-- Tabs to indicate event frequency -->
+                <div id="frequency">
+                    <input type="radio" id="frequency1" name="frequency" value="weekly"><label for="frequency1">Weekly</label>
+                    <input type="radio" id="frequency2" name="frequency" value="monthly"><label for="frequency2">Monthly</label>
+                    <input type="radio" id="frequency3" name="frequency" value="quarterly"><label for="frequency3">Quarterly</label>
+                    <input type="radio" id="frequency4" name="frequency" value="semiannually"><label for="frequency4">Semiannually</label>
+                    <input type="radio" id="frequency5" name="frequency" value="annually"><label for="frequency5">Annually</label>
+                </div>
+
+                <!-- Recurring event input values -->
+                <div id="recurringValues">
+                    Transaction: <input type="text" id="recurringTitle"><br>
+                    Start Date: <input type ="text" id="recurringStartDate"><br>
+                    End Date: <input type ="text" id="recurringEndDate"><br>
+                    Cash Flow: <input type="text" id="recurringCashFlow"><br>
+                    <button id="addRecurringEvent">Add Transactions</button>
+                </div>
             </div>
         </div>
     </div>
