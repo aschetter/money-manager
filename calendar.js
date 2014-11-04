@@ -1,6 +1,11 @@
 // Inialize tabs for creating an event
 $('#addTabs').tabs();
 
+// Inialize datepickers to add single and recurring events
+$('#singleDate').datepicker({dateFormat: "yy-mm-dd"});
+$('#recurringStartDate').datepicker({dateFormat: "yy-mm-dd"});
+$('#recurringEndDate').datepicker({dateFormat: "yy-mm-dd"});
+
 // Hold event object to pass from event click to dialog form
 var selectedEvent;
 
@@ -9,14 +14,14 @@ var events = [
     {
         id: 1,
         title: 'Electric Bill: $100',
-        start: '2014-10-15',
+        start: '2014-11-15',
         cashFlow: -100,
         color: 'red'
     },
     {
         id: 2,
         title: 'Water Bill: $100',
-        start: '2014-10-16',
+        start: '2014-11-16',
         cashFlow: -80,
         color: 'red'
     }
@@ -125,18 +130,24 @@ $('#deleteEvent').on('click', function() {
     $('#editEventDialog').dialog('close');
 });
 
-// Add an event to the calendar
-// $('#addEvent').on('click', function() {
 
-//     // Development random id generator
-//     var id = Math.floor(Math.random()*10000000001);
-//     var title = $('#title').val();
-//     var start = $('#start').val();
-//     var cashFlow = $('#cashFlow').val();
-//     var color = '';
+// Add a single event to the calendar
+$('#addSingleEvent').on('click', function() {
 
-//     // Ensure all values are filled in
-//     if (title != '' && start != '' && cashFlow != '') {
+    // Development random id generator
+    var id = Math.floor(Math.random()*10000000001);
+    var title = $('#singleTitle').val();
+    var start = $('#singleDate').val();
+    var cashFlow = $('#singleCashFlow').val();
+    var color = '';
+
+    console.log(id);
+    console.log(title);
+    console.log(start);
+    console.log(cashFlow);
+
+    // Ensure all values are filled in
+    if (title != '' && start != '' && cashFlow != '') {
 
 //         // Add the event to the events array
 //         var event = {
@@ -149,20 +160,20 @@ $('#deleteEvent').on('click', function() {
 
 //         events.push(event);
         
-//         // Set event color based on cash flow
-//         if (cashFlow < 0) {
-//             color = 'red';
-//         } else {
-//             color = 'green';
-//         }
+        // Set event color based on cash flow
+        if (cashFlow < 0) {
+            color = 'red';
+        } else {
+            color = 'green';
+        }
 
-//         // Render the event on the calendar
-//         $('#calendar').fullCalendar('renderEvent', {
-//             id: id,
-//             title: title + ': $' + cashFlow,
-//             start: start,
-//             cashFlow: cashFlow,
-//             color: color
-//         }, true);
-//     }
-// });
+        // Render the event on the calendar
+        $('#calendar').fullCalendar('renderEvent', {
+            id: id,
+            title: title + ': $' + cashFlow,
+            start: start,
+            cashFlow: cashFlow,
+            color: color
+        }, true);
+    }
+});
