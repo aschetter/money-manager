@@ -186,13 +186,14 @@ $('#addRecurringEvent').on('click', function() {
     // Development random id generator
     var id = Math.floor(Math.random()*10000000001);
 
+    var frequency = $('#frequency input[name=frequency]:checked').val();
     var title = $('#recurringTitle').val();
     var start = $('#recurringStartDate').val();
     var end = $('#recurringEndDate').val();
     var cashFlow = $('#recurringCashFlow').val();
 
     // Ensure all values are filled in
-    if (title != '' && start != '' && end != '' && cashFlow != '') {
+    if (frequency && title != '' && start != '' && end != '' && cashFlow != '') {
 
 //         // Add the event to the events array
 //         var event = {
