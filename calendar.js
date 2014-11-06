@@ -55,13 +55,13 @@ $('#calendar').fullCalendar({
         selectedEvent = event;
 
         // Remove the cashFlow from the title for editing
-        var title = event.title;
+        var title = selectedEvent.title;
         var endIndex = title.indexOf(':');
         var transaction = title.slice(0, endIndex);
 
         // Set the default form values
         $('#title').attr('value', transaction);
-        $('#cashFlow').attr('value', event.cashFlow);
+        $('#cashFlow').attr('value', selectedEvent.cashFlow);
 
         // Open the dialog with tabs
         $('#editTabs').tabs();
@@ -113,8 +113,8 @@ $('#editEvent').on('click', function() {
         
         // Clear variables 
         selectedEvent = undefined;
-        $('#title').attr('value', undefined);
-        $('#cashFlow').attr('value', undefined);
+        $('#title').val(undefined);
+        $('#cashFlow').val(undefined);
 
         // Close dialog
         $('#editEventDialog').dialog('close');
@@ -133,7 +133,6 @@ $('#deleteEvent').on('click', function() {
     $('#editEventDialog').dialog('close');
 });
 
-var start;
 // Add a single event to the calendar
 $('#addSingleEvent').on('click', function() {
 
@@ -142,7 +141,7 @@ $('#addSingleEvent').on('click', function() {
 
     // Pull form input values
     var title = $('#singleTitle').val();
-    start = $('#singleDate').val();
+    var start = $('#singleDate').val();
     var cashFlow = $('#singleCashFlow').val();
 
     // Ensure all values are filled in
@@ -176,6 +175,11 @@ $('#addSingleEvent').on('click', function() {
             cashFlow: cashFlow,
             color: color
         }, true);
+
+        // Clear form values 
+        $('#singleTitle').val(undefined);
+        $('#singleDate').val(undefined);
+        $('#singleCashFlow').val(undefined);
     }
 });
 
@@ -183,7 +187,7 @@ $('#addSingleEvent').on('click', function() {
 $('#addRecurringEvent').on('click', function() {
 
     // Development random id generator
-    var id = Math.floor(Math.random()*10000000001);
+    var id = Math.floor(Math.random()*1001);
 
     var frequency = $('#frequency input[name=frequency]:checked').val();
     var title = $('#recurringTitle').val();
@@ -223,5 +227,11 @@ $('#addRecurringEvent').on('click', function() {
             cashFlow: cashFlow,
             color: color
         }, true);
+
+        // Clear form values 
+        $('#recurringTitle').val(undefined);
+        $('#recurringStartDate').val(undefined);
+        $('#recurringEndDate').val(undefined);
+        $('#recurringCashFlow').val(undefined);
     }
 });
