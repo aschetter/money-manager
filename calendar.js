@@ -1,6 +1,6 @@
 // Inialize radio buttons for transaction type and frequency
-$('#type').buttonset();
-$('#frequency').buttonset();
+$('#addType').buttonset();
+$('#addFrequency').buttonset();
 
 // Inialize accordian feature for the transaction adding form
 $("#addForm").accordion({
@@ -78,6 +78,7 @@ $('#calendar').fullCalendar({
 
         // Open dialog with tabs
         $('#editTabs').tabs();
+        $('#editType').buttonset();
         $('#dialog').dialog({
             modal: true,
             draggable: false,
@@ -106,8 +107,14 @@ $('#monthButton').on('click', function() {
 
 // Edit a transaction on the calendar
 $('#editButton').on('click', function() {
+
+    // Pull form input values
     var title = $('#editTitle').val();
+    // var type = $('input[name=type]:checked').val()
     var amount = $('#editAmount').val();
+    // var frequency = $('input[name=editFrequency]:checked').val()
+    // var start = $('#addStart').val();
+    // var end = $'#addEnd').val();
 
     // Ensure all values are filled in
     if (title != '' && amount != '') {
@@ -147,16 +154,16 @@ $('#addButton').on('click', function() {
 
     // Pull form input values
     var title = $('#addTitle').val();
-    var type = $('input[name=type]:checked').val()
+    var type = $('input[name=addType]:checked').val()
     var amount = $('#addAmount').val();
-    var frequency = $('input[name=frequency]:checked').val()
+    var frequency = $('input[name=addFrequency]:checked').val()
     var start = $('#addStart').val();
     // var end = $'#addEnd').val();
 
     // Ensure all values are filled in
     if (title != '' && type != '' && amount != '' && frequency != '' && start != '') {
     
-        // Set the color attribute to render on the calendar
+        // Set the color attribute
         var color = '';
         if (type == 'income') {
             color = 'green';
@@ -175,8 +182,6 @@ $('#addButton').on('click', function() {
             // end: end
             color: color
         };
-
-        console.log(transaction);
 
         // Render the transaction on the calendar
         $('#calendar').fullCalendar('renderEvent', transaction, true);

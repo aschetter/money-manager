@@ -23,19 +23,19 @@
         <div>
 
             <!-- Transaction type radio buttons-->
-            <div id="type">
-                <input type="radio" id="income" name="type" value="income"><label id="incomeLabel" for="income">Income</label>
-                <input type="radio" id="expense" name="type" value="expense"><label id="expenseLabel" for="expense">Expense</label>
+            <div id="addType">
+                <input type="radio" id="addIncome" name="addType" value="income"><label id="incomeLabel" for="addIncome">Income</label>
+                <input type="radio" id="addExpense" name="addType" value="expense"><label id="expenseLabel" for="addExpense">Expense</label>
             </div>
 
             <!-- Transaction frequency radio buttons-->
-            <div id="frequency">
-                <input type="radio" id="once" name="frequency" value="once"><label for="once">Once</label>
-                <input type="radio" id="weekly" name="frequency" value="weekly"><label for="weekly">Weekly</label>
-                <input type="radio" id="monthly" name="frequency" value="monthly"><label for="monthly">Monthly</label>
-                <input type="radio" id="quarterly" name="frequency" value="quarterly"><label for="quarterly">4x Year</label>
-                <input type="radio" id="semiannually" name="frequency" value="semiannually"><label for="semiannually">2x Year</label>
-                <input type="radio" id="annually" name="frequency" value="annually"><label for="annually">1x Year</label>
+            <div id="addFrequency">
+                <input type="radio" id="once" name="addFrequency" value="once"><label for="once">Once</label>
+                <input type="radio" id="weekly" name="addFrequency" value="weekly"><label for="weekly">Weekly</label>
+                <input type="radio" id="monthly" name="addFrequency" value="monthly"><label for="monthly">Monthly</label>
+                <input type="radio" id="quarterly" name="addFrequency" value="quarterly"><label for="quarterly">4x Year</label>
+                <input type="radio" id="semiannually" name="addFrequency" value="semiannually"><label for="semiannually">2x Year</label>
+                <input type="radio" id="annually" name="addFrequency" value="annually"><label for="annually">1x Year</label>
             </div>
 
             <!-- Transaction input values -->
@@ -65,6 +65,12 @@
 
             <!-- Tab to edit an event -->
             <div id="editTab">
+
+                <div id="editType">
+                    <input type="radio" id="editIncome" name="editType" value="income"><label class="incomeLabel" for="editIncome">Income</label>
+                    <input type="radio" id="editExpense" name="editType" value="expense"><label class="expenseLabel" for="editExpense">Expense</label>
+                </div>
+
                 Transaction:<input type="text" id="editTitle">
                 Amount:<input type="text" id="editAmount">
                 <button id="editButton">Edit Transaction</button>
