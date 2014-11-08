@@ -15,6 +15,16 @@ h1 {
     margin-bottom: 1rem;
 }
 
+#incomeLabel span {
+    background-color: green;
+    color: white;
+}
+
+#expenseLabel span {
+    background-color: red;
+    color: white;
+}
+
 #frequency {
     text-align: center;
     margin-bottom: 1rem;
