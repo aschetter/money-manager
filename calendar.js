@@ -30,6 +30,7 @@ var events = [
     }
 ];
 
+// Initialize calendar plug-in
 $('#calendar').fullCalendar({
 
     // Header styling for month view
@@ -50,6 +51,7 @@ $('#calendar').fullCalendar({
         element.attr('title', event.start.format());
     },
 
+    // Allow event editing and deletion on event click
     eventClick: function(event) {
         // Save event in holder variable for the dialog form
         selectedEvent = event;
@@ -137,7 +139,7 @@ $('#deleteEvent').on('click', function() {
 $('#addSingleEvent').on('click', function() {
 
     // Development random id generator
-    var id = Math.floor(Math.random()*10000000001);
+    var id = Math.floor(Math.random()*1001);
 
     // Pull form input values
     var title = $('#singleTitle').val();
@@ -146,17 +148,6 @@ $('#addSingleEvent').on('click', function() {
 
     // Ensure all values are filled in
     if (title != '' && start != '' && cashFlow != '') {
-
-//         // Add the event to the events array
-//         var event = {
-//             id: id,
-//             title: title,
-//             start: start,
-//             cashFlow: cashFlow,
-//             color: color
-//         };
-
-//         events.push(event);
         
         // Set event color based on cash flow
         var color = '';
@@ -167,14 +158,16 @@ $('#addSingleEvent').on('click', function() {
             color = 'green';
         }
 
-        // Render the event on the calendar
-        $('#calendar').fullCalendar('renderEvent', {
+        var singleTransaction = {
             id: id,
             title: title + ': $' + cashFlow,
             start: start,
             cashFlow: cashFlow,
             color: color
-        }, true);
+        };
+
+        // Render the event on the calendar
+        $('#calendar').fullCalendar('renderEvent', singleTransaction, true);
 
         // Clear form values 
         $('#singleTitle').val(undefined);
@@ -197,17 +190,6 @@ $('#addRecurringEvent').on('click', function() {
 
     // Ensure all values are filled in
     if (frequency && title != '' && start != '' && end != '' && cashFlow != '') {
-
-//         // Add the event to the events array
-//         var event = {
-//             id: id,
-//             title: title,
-//             start: start,
-//             cashFlow: cashFlow,
-//             color: color
-//         };
-
-//         events.push(event);
         
         // Set event color based on cash flow
         var color = '';
@@ -218,15 +200,17 @@ $('#addRecurringEvent').on('click', function() {
             color = 'green';
         }
 
-        // Render the event on the calendar
-        $('#calendar').fullCalendar('renderEvent', {
+        var recurringTransaction = {
             id: id,
             title: title + ': $' + cashFlow,
             start: start,
             end: end,
             cashFlow: cashFlow,
             color: color
-        }, true);
+        };
+
+        // Render the event on the calendar
+        $('#calendar').fullCalendar('renderEvent', recurringTransaction, true);
 
         // Clear form values 
         $('#recurringTitle').val(undefined);
