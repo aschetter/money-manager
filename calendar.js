@@ -22,16 +22,18 @@ var transactions = [
     {
         id: 1,
         title: 'Electric Bill: $100',
-        start: '2014-11-15',
-        amount: -100,
-        color: 'red'
+        type: 'expense',
+        amount: 100,
+        frequency: 'once',
+        start: '2014-11-15'
     },
     {
         id: 2,
-        title: 'Water Bill: $100',
-        start: '2014-11-16',
-        amount: -80,
-        color: 'red'
+        title: 'Paycheck: $100',
+        type: 'income',
+        amount: 80,
+        frequency: 'once',
+        start: '2014-11-16'
     }
 ];
 
@@ -125,16 +127,16 @@ $('#editButton').on('click', function() {
 // Remove a transaction from the calendar
 $('#deleteButton').on('click', function() {
 
-    // Pull event id and remove event
+    // Pull transaction id and remove transaction
     var id = selected.id;
     $('#calendar').fullCalendar('removeEvents', id);
 
-    // Clear event holder variable and close dialog
+    // Clear transaction holder variable and close dialog
     selected = undefined;
     $('#dialog').dialog('close');
 });
 
-// Add a single event to the calendar
+// Add a transaction on the calendar
 $('#addButton').on('click', function() {
 
     // Development random id generator
@@ -142,8 +144,11 @@ $('#addButton').on('click', function() {
 
     // Pull form input values
     var title = $('#addTitle').val();
-    var start = $('#addStart').val();
+    var type = $('input[name=type]:checked').val()
     var amount = $('#addAmount').val();
+    var frequency = $('input[name=frequency]:checked').val()
+    var start = $('#addStart').val();
+    // var end = $'#addEnd').val();
 
     // Ensure all values are filled in
     if (title != '' && start != '' && amount != '') {
@@ -152,15 +157,14 @@ $('#addButton').on('click', function() {
         var transaction = {
             id: id,
             title: title + ': $' + amount,
+            type: type,
             amount: amount,
             frequency: frequency,
             start: start,
             // end: end
         };
 
-        console.log(transaction);
-
-        // Render the event on the calendar
+        // Render the transaction on the calendar
         $('#calendar').fullCalendar('renderEvent', transaction, true);
 
         // Clear form values 
