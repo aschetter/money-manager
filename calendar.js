@@ -3,12 +3,14 @@ $('#addTabs').tabs();
 
 // Inialize radio buttons for determining frequency of recurring events
 $('#frequency').buttonset();
-$('#month').button();
 
 // Inialize datepickers to add single and recurring events
 $('#singleDate').datepicker({dateFormat: "yy-mm-dd"});
 $('#recurringStartDate').datepicker({dateFormat: "yy-mm-dd"});
 $('#recurringEndDate').datepicker({dateFormat: "yy-mm-dd"});
+
+// Inialize styling for all buttons
+$('button').button();
 
 // Hold event object to pass from event click to dialog form
 var selectedEvent;
