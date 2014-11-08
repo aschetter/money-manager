@@ -17,53 +17,33 @@
 
     <h1>Money Manager</h1>
 
-    <!-- Containter div for form to add events -->
-    <div id="addEventForm">
-        <div id="addTabs">
-            <ul>
-                <li><a href="#singleTab">Single</a></li>
-                <li><a href="#recurringTab">Recurring</a></li>
-            </ul>
-
-            <!-- Form to add a single event -->
-            <div id="singleTab">
-
-                <!-- Tab to indicate transaction type -->
-                <div id="transactionType">
-                    <input type="radio" id="income" name="transactionType" value="income"><label for="income">Income</label>
-                    <input type="radio" id="expense" name="transactionType" value="expense"><label for="expense">Expense</label>
-                </div>
-
-                <!-- Single event input values -->
-                <div id="singleValues">
-                    <label for="singleTitle">Transaction:</label><input type="text" id="singleTitle">
-                    <label for="singleDate">Date:</label><input type ="text" id="singleDate">
-                    <label for="singleAmount">Amount:</label><input type="text" id="singleAmount">
-                    <button id="addSingleEvent">Add Transaction</button>
-                </div>
+    <!-- Form to add a transaction -->
+    <div id="addTransaction">
+            <h3>Add a Transaction</h3>
+        <div>
+            <!-- Transaction type radio buttons-->
+            <div id="transactionType">
+                <input type="radio" id="income" name="transactionType" value="income"><label for="income">Income</label>
+                <input type="radio" id="expense" name="transactionType" value="expense"><label for="expense">Expense</label>
             </div>
 
+            <!-- Transaction frequency radio buttons-->
+            <div id="frequency">
+                <input type="radio" id="once" name="frequency" value="once"><label for="once">Once</label>
+                <input type="radio" id="weekly" name="frequency" value="weekly"><label for="weekly">Weekly</label>
+                <input type="radio" id="monthly" name="frequency" value="monthly"><label for="monthly">Monthly</label>
+                <input type="radio" id="quarterly" name="frequency" value="quarterly"><label for="quarterly">4x Year</label>
+                <input type="radio" id="semiannually" name="frequency" value="semiannually"><label for="semiannually">2x Year</label>
+                <input type="radio" id="annually" name="frequency" value="annually"><label for="annually">1x Year</label>
+            </div>
 
-            <!-- Form to add a recurring event -->
-            <div id="recurringTab">
-
-                <!-- Tabs to indicate event frequency -->
-                <div id="frequency">
-                    <input type="radio" id="weekly" name="frequency" value="weekly"><label for="weekly">Weekly</label>
-                    <input type="radio" id="monthly" name="frequency" value="monthly"><label for="monthly">Monthly</label>
-                    <input type="radio" id="quarterly" name="frequency" value="quarterly"><label for="quarterly">Quarterly</label>
-                    <input type="radio" id="semiannually" name="frequency" value="semiannually"><label for="semiannually">Semiannually</label>
-                    <input type="radio" id="annually" name="frequency" value="annually"><label for="annually">Annually</label>
-                </div>
-
-                <!-- Recurring event input values -->
-                <div id="recurringValues">
-                    <label for="recurringTitle">Transaction:</label><input type="text" id="recurringTitle">
-                    <label for="recurringStartDate">Start Date:</label><input type ="text" id="recurringStartDate">
-                    <label for="recurringEndDate">End Date:</label><input type ="text" id="recurringEndDate">
-                    <label for="recurringAmount">Amount:</label><input type="text" id="recurringAmount">
-                    <button id="addRecurringEvent">Add Transactions</button>
-                </div>
+            <!-- Transaction input values -->
+            <div id="values">
+                <label for="title">Transaction:</label><input type="text" id="title">
+                <label for="amount">Amount:</label><input type="text" id="amount">
+                <label for="startDate">Start Date:</label><input type ="text" id="startDate">
+                <!-- <label for="endDate">End Date:</label><input type ="text" id="endDate"> -->
+                <button id="addEvent">Add Transaction</button>
             </div>
         </div>
     </div>
@@ -71,7 +51,7 @@
     <!-- Button to change day view back to month view -->
     <button id="month">Back to Month</button>
 
-    <!-- Container div for calendar -->
+    <!-- Calendar container div-->
     <div id="calendar"></div>
 
     <!-- Dialog box to edit a transaction on the calendar -->

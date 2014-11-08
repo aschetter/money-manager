@@ -6,7 +6,7 @@ h1 {
     text-align: center;
 }
 
-#addEventForm {
+#addTransaction {
     margin-bottom: 1rem;
 }
 
@@ -20,7 +20,12 @@ h1 {
     margin-bottom: 1rem;
 }
 
-#recurringValues {
+#frequency label {
+    width: 16.5%;
+    margin-bottom: 1rem;
+}
+
+#values {
     text-align: left;
 }
 

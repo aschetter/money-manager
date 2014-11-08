@@ -1,9 +1,10 @@
-// Inialize tabs for creating an event
-$('#addTabs').tabs();
-
-// Inialize radio buttons for determining frequency of recurring events
-$('#frequency').buttonset();
+// Inialize radio buttons for transaction type and frequency
 $('#transactionType').buttonset();
+$('#frequency').buttonset();
+
+$("#addTransaction").accordion({
+      collapsible: true
+});
 
 // Inialize datepickers to add single and recurring events
 $('#singleDate').datepicker({dateFormat: "yy-mm-dd"});
