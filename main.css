@@ -39,7 +39,7 @@ h1 {
     text-align: left;
 }
 
-input {
+input, #monthButton {
     width: 100%;
     margin-bottom: 1rem;
 }

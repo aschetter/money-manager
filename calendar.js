@@ -25,15 +25,17 @@ var transactions = [
         type: 'expense',
         amount: 100,
         frequency: 'once',
-        start: '2014-11-15'
+        start: '2014-11-15',
+        color: 'red'
     },
     {
         id: 2,
-        title: 'Paycheck: $100',
+        title: 'Paycheck: $80',
         type: 'income',
         amount: 80,
         frequency: 'once',
-        start: '2014-11-16'
+        start: '2014-11-16',
+        color: 'green'
     }
 ];
 
@@ -56,6 +58,7 @@ $('#calendar').fullCalendar({
     // Tooltip displays the date of a transaction on mouseOver
     eventRender: function(event, element) {
         element.attr('title', event.start.format());
+        event.color = 'green';
     },
 
     // Allow transaction editing and deletion on transaction click
@@ -151,7 +154,15 @@ $('#addButton').on('click', function() {
     // var end = $'#addEnd').val();
 
     // Ensure all values are filled in
-    if (title != '' && start != '' && amount != '') {
+    if (title != '' && type != '' && amount != '' && frequency != '' && start != '') {
+    
+        // Set the color attribute to render on the calendar
+        var color = '';
+        if (type == 'income') {
+            color = 'green';
+        } else if (type == 'expense') {
+            color = 'red'
+        }
 
         // Create transaction object
         var transaction = {
@@ -162,7 +173,10 @@ $('#addButton').on('click', function() {
             frequency: frequency,
             start: start,
             // end: end
+            color: color
         };
+
+        console.log(transaction);
 
         // Render the transaction on the calendar
         $('#calendar').fullCalendar('renderEvent', transaction, true);
