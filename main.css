@@ -7,7 +7,7 @@ h1 {
 }
 
 #addEventForm {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 #frequency {
@@ -31,4 +31,9 @@ input {
 #editEvent {
     width: 80%;
     margin-left: 10%;
+}
+
+#month {
+    margin-bottom: 1rem;
+    width: 100%;
 }

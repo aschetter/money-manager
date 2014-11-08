@@ -3,6 +3,7 @@ $('#addTabs').tabs();
 
 // Inialize radio buttons for determining frequency of recurring events
 $('#frequency').buttonset();
+$('#month').button();
 
 // Inialize datepickers to add single and recurring events
 $('#singleDate').datepicker({dateFormat: "yy-mm-dd"});
@@ -53,6 +54,7 @@ $('#calendar').fullCalendar({
 
     // Allow event editing and deletion on event click
     eventClick: function(event) {
+
         // Save event in holder variable for the dialog form
         selectedEvent = event;
 
@@ -128,7 +130,7 @@ $('#deleteEvent').on('click', function() {
 
     // Pull event id and remove event
     var id = selectedEvent.id;
-    $('#calendar').fullCalendar( 'removeEvents', id);
+    $('#calendar').fullCalendar('removeEvents', id);
 
     // Clear event holder variable and close dialog
     selectedEvent = undefined;
@@ -158,6 +160,7 @@ $('#addSingleEvent').on('click', function() {
             color = 'green';
         }
 
+        // Create single transaction object
         var singleTransaction = {
             id: id,
             title: title + ': $' + cashFlow,
@@ -200,6 +203,7 @@ $('#addRecurringEvent').on('click', function() {
             color = 'green';
         }
 
+        // Create recurring transaction object
         var recurringTransaction = {
             id: id,
             title: title + ': $' + cashFlow,
