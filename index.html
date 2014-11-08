@@ -18,14 +18,14 @@
     <h1>Money Manager</h1>
 
     <!-- Form to add a transaction -->
-    <div id="addTransaction">
+    <div id="addForm">
             <h3>Add a Transaction</h3>
         <div>
 
             <!-- Transaction type radio buttons-->
-            <div id="transactionType">
-                <input type="radio" id="income" name="transactionType" value="income"><label id="incomeLabel" for="income">Income</label>
-                <input type="radio" id="expense" name="transactionType" value="expense"><label id="expenseLabel" for="expense">Expense</label>
+            <div id="type">
+                <input type="radio" id="income" name="type" value="income"><label id="incomeLabel" for="income">Income</label>
+                <input type="radio" id="expense" name="type" value="expense"><label id="expenseLabel" for="expense">Expense</label>
             </div>
 
             <!-- Transaction frequency radio buttons-->
@@ -40,23 +40,23 @@
 
             <!-- Transaction input values -->
             <div id="values">
-                <label for="title">Transaction:</label><input type="text" id="title">
-                <label for="amount">Amount:</label><input type="text" id="amount">
-                <label for="startDate">Start Date:</label><input type ="text" id="startDate">
-                <!-- <label for="endDate">End Date:</label><input type ="text" id="endDate"> -->
-                <button id="addEvent">Add Transaction</button>
+                <label for="addTitle">Transaction:</label><input type="text" id="addTitle">
+                <label for="addAmount">Amount:</label><input type="text" id="addAmount">
+                <label for="addStart">Start Date:</label><input type ="text" id="addStart">
+                <!-- <label for="addEnd">End Date:</label><input type ="text" id="addEnd"> -->
+                <button id="addButton">Add Transaction</button>
             </div>
         </div>
     </div>
 
     <!-- Button to change day view back to month view -->
-    <button id="month">Back to Month</button>
+    <button id="monthButton">Back to Month</button>
 
     <!-- Calendar container div-->
     <div id="calendar"></div>
 
     <!-- Dialog box to edit a transaction on the calendar -->
-    <div id="editEventDialog">
+    <div id="dialog">
         <div id="editTabs">
             <ul>
                 <li><a href="#editTab">Edit</a></li>
@@ -65,14 +65,14 @@
 
             <!-- Tab to edit an event -->
             <div id="editTab">
-                Transaction: <input type="text" id="title">
-                Cash Flow: <input type="text" id="cashFlow">
-                <button id="editEvent">Edit Transaction</button>
+                Transaction:<input type="text" id="editTitle">
+                Amount:<input type="text" id="editAmount">
+                <button id="editButton">Edit Transaction</button>
             </div>
 
             <!-- Tab to delete an event -->
             <div id="deleteTab">
-                <button id="deleteEvent">Delete Transaction</button>
+                <button id="deleteButton">Delete Transaction</button>
             </div>
         </div>
     </div>
