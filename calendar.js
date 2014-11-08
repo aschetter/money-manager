@@ -3,6 +3,7 @@ $('#addTabs').tabs();
 
 // Inialize radio buttons for determining frequency of recurring events
 $('#frequency').buttonset();
+$('#transactionType').buttonset();
 
 // Inialize datepickers to add single and recurring events
 $('#singleDate').datepicker({dateFormat: "yy-mm-dd"});

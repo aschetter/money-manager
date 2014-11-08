@@ -27,11 +27,22 @@
 
             <!-- Form to add a single event -->
             <div id="singleTab">
-                <label for="singleTitle">Transaction:</label><input type="text" id="singleTitle">
-                <label for="singleDate">Date:</label><input type ="text" id="singleDate">
-                <label for="singleAmount">Amount:</label><input type="text" id="singleAmount">
-                <button id="addSingleEvent">Add Transaction</button>
+
+                <!-- Tab to indicate transaction type -->
+                <div id="transactionType">
+                    <input type="radio" id="income" name="transactionType" value="income"><label for="income">Income</label>
+                    <input type="radio" id="expense" name="transactionType" value="expense"><label for="expense">Expense</label>
+                </div>
+
+                <!-- Single event input values -->
+                <div id="singleValues">
+                    <label for="singleTitle">Transaction:</label><input type="text" id="singleTitle">
+                    <label for="singleDate">Date:</label><input type ="text" id="singleDate">
+                    <label for="singleAmount">Amount:</label><input type="text" id="singleAmount">
+                    <button id="addSingleEvent">Add Transaction</button>
+                </div>
             </div>
+
 
             <!-- Form to add a recurring event -->
             <div id="recurringTab">
