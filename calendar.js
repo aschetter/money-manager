@@ -67,6 +67,8 @@ $('#calendar').fullCalendar({
         // Save transaction in holder variable for the dialog form
         selected = event;
 
+        console.log(selected);
+
         // Remove the amount from the title for editing
         var title = selected.title;
         var endIndex = title.indexOf(':');
@@ -110,16 +112,25 @@ $('#editButton').on('click', function() {
 
     // Pull form input values
     var title = $('#editTitle').val();
-    // var type = $('input[name=type]:checked').val()
+    var type = $('input[name=editType]:checked').val()
     var amount = $('#editAmount').val();
     // var frequency = $('input[name=editFrequency]:checked').val()
     // var start = $('#addStart').val();
     // var end = $'#addEnd').val();
 
     // Ensure all values are filled in
-    if (title != '' && amount != '') {
+    if (title != '' && type != '' && amount != '') {
         selected.title = title + ': $' + amount;
+        selected.type = type;
         selected.amount = amount;
+
+        // Set the color attribute
+        var color = '';
+        if (type == 'income') {
+            selected.color = 'green';
+        } else if (type == 'expense') {
+            selected.color = 'red'
+        }
 
         // Render new transaction info
         $('#calendar').fullCalendar('updateEvent', selected);
