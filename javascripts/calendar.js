@@ -48,10 +48,12 @@ $('#calendar').fullCalendar({
         // Open dialog with tabs
         $('#editTabs').tabs();
         $('#editType').buttonset();
+        $('#editFrequency').buttonset();
         $('#dialog').dialog({
             close: function() {
                 selected = undefined;
             },
+            width: 500,
             modal: true,
             draggable: false,
             resizable: false

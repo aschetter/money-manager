@@ -39,7 +39,7 @@
             </div>
 
             <!-- Transaction input values -->
-            <div id="values">
+            <div id="addValues">
                 <label for="addTitle">Transaction:</label><input type="text" id="addTitle">
                 <label for="addAmount">Amount:</label><input type="text" id="addAmount">
                 <label for="addStart">Start Date:</label><input type ="text" id="addStart">
@@ -66,14 +66,28 @@
             <!-- Tab to edit an event -->
             <div id="editTab">
 
+                <!-- Transaction type radio buttons-->
                 <div id="editType">
                     <input type="radio" id="editIncome" name="editType" value="income"><label class="incomeLabel" for="editIncome">Income</label>
                     <input type="radio" id="editExpense" name="editType" value="expense"><label class="expenseLabel" for="editExpense">Expense</label>
                 </div>
 
-                Transaction:<input type="text" id="editTitle">
-                Amount:<input type="text" id="editAmount">
-                <button id="editButton">Edit Transaction</button>
+                <!-- Transaction frequency radio buttons-->
+                <div id="editFrequency">
+                    <input type="radio" id="once" name="editFrequency" value="once"><label for="once">Once</label>
+                    <input type="radio" id="weekly" name="editFrequency" value="weekly"><label for="weekly">Weekly</label>
+                    <input type="radio" id="monthly" name="editFrequency" value="monthly"><label for="monthly">Monthly</label>
+                    <input type="radio" id="quarterly" name="editFrequency" value="quarterly"><label for="quarterly">4x Year</label>
+                    <input type="radio" id="semiannually" name="editFrequency" value="semiannually"><label for="semiannually">2x Year</label>
+                    <input type="radio" id="annually" name="editFrequency" value="annually"><label for="annually">1x Year</label>
+                </div>
+
+                <!-- Transaction input values -->
+                <div id="editValues">
+                    <label for="editTitle">Transaction:</label><input type="text" id="editTitle">
+                    <label for="editAmount">Amount:</label><input type="text" id="editAmount">
+                    <button id="editButton">Edit Transaction</button>
+                </div>
             </div>
 
             <!-- Tab to delete an event -->

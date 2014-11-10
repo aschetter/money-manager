@@ -10,7 +10,7 @@ h1 {
     margin-bottom: 1rem;
 }
 
-#editType label, #addType label {
+#editType label, #addType label, #editFrequency label {
     width: 50%;
     margin-bottom: 1rem;
 }
@@ -24,19 +24,15 @@ h1 {
     background-color: red;
     color: white;
 }*/
-
-#addFrequency {
+/*
+#addFrequency, #editFrequency {
     text-align: center;
     margin-bottom: 1rem;
-}
+}*/
 
 #addFrequency label {
     width: 16.5%;
     margin-bottom: 1rem;
-}
-
-#values {
-    text-align: left;
 }
 
 input, #monthButton {
