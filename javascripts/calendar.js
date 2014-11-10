@@ -17,7 +17,6 @@ $('#calendar').fullCalendar({
     // Tooltip displays the date of a transaction on mouseOver
     eventRender: function(event, element) {
         element.attr('title', event.start.format());
-        event.color = 'green';
     },
 
     // Allow transaction editing and deletion on transaction click
@@ -36,15 +35,15 @@ $('#calendar').fullCalendar({
         $('#editAmount').attr('value', selected.amount);
 
         // Set the default transaction type radio button
-        // if (selected.type == 'income') {
-        //     $('#editType .incomeLabel').addClass('ui-state-active');
-        //     $('#editType .incomeLabel').attr('aria-pressed', 'true');
-        // } else if (selected.type == 'expense') {
-        //     $('#editType .expenseLabel').addClass('ui-state-active');
-        //     $('#editType .expenseLabel').attr('aria-pressed', 'true');
-        // } else {
-        //     console.log('No transaction type is given');
-        // }
+        if (selected.type == 'income') {
+            $('#editType .incomeLabel').addClass('ui-state-active');
+            $('#editType .incomeLabel').attr('aria-pressed', 'true');
+        } else if (selected.type == 'expense') {
+            $('#editType .expenseLabel').addClass('ui-state-active');
+            $('#editType .expenseLabel').attr('aria-pressed', 'true');
+        } else {
+            console.log('No transaction type is given');
+        }
 
         // Open dialog with tabs
         $('#editTabs').tabs();
