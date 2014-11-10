@@ -26,24 +26,33 @@ $('#calendar').fullCalendar({
         // Save transaction in holder variable for the dialog form
         selected = event;
 
-        console.log(selected);
-
         // Remove the amount from the title for editing
         var title = selected.title;
         var endIndex = title.indexOf(':');
         var transaction = title.slice(0, endIndex);
 
-        console.log(transaction);
-        console.log(selected.amount);
-
         // Set the default form values
         $('#editTitle').attr('value', transaction);
         $('#editAmount').attr('value', selected.amount);
+
+        // Set the default transaction type radio button
+        // if (selected.type == 'income') {
+        //     $('#editType .incomeLabel').addClass('ui-state-active');
+        //     $('#editType .incomeLabel').attr('aria-pressed', 'true');
+        // } else if (selected.type == 'expense') {
+        //     $('#editType .expenseLabel').addClass('ui-state-active');
+        //     $('#editType .expenseLabel').attr('aria-pressed', 'true');
+        // } else {
+        //     console.log('No transaction type is given');
+        // }
 
         // Open dialog with tabs
         $('#editTabs').tabs();
         $('#editType').buttonset();
         $('#dialog').dialog({
+            close: function() {
+                selected = undefined;
+            },
             modal: true,
             draggable: false,
             resizable: false

@@ -6,7 +6,7 @@ $('#editButton').on('click', function() {
 
     // Pull form input values
     var title = $('#editTitle').val();
-    var type = $('input[name=editType]:checked').val()
+    var type = $('#editType input[name=editType]:checked').val()
     var amount = $('#editAmount').val();
     // var frequency = $('input[name=editFrequency]:checked').val()
     // var start = $('#addStart').val();
