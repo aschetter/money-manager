@@ -9,11 +9,12 @@ $('#addButton').on('click', function() {
     var title = $('#addTitle').val();
     var type = $('input[name=addType]:checked').val()
     var amount = $('#addAmount').val();
-    var frequency = $('input[name=addFrequency]:checked').val()
+    var frequency = $('input[name=addFrequency]:checked').val();
+    var weeklyDay = $('input[name=addWeeklyDay]:checked').val();
     var start = $('#addStart').val();
     // var end = $'#addEnd').val();
 
-    // Ensure all values are filled in
+    // Ensure all values are set
     if (title != '' && type != '' && amount != '' && frequency != '' && start != '') {
     
         // Set the color attribute
@@ -21,7 +22,7 @@ $('#addButton').on('click', function() {
         if (type == 'income') {
             color = 'green';
         } else if (type == 'expense') {
-            color = 'red'
+            color = 'red';
         }
 
         // Create transaction object
@@ -35,6 +36,17 @@ $('#addButton').on('click', function() {
             // end: end
             color: color
         };
+
+        // Test to see if the frequency is weekly
+        if (transaction.frequency == 'weekly') {
+
+            // Ensure the day value is set
+            if (weeklyDay != '') {
+
+                // Set the day value
+                transaction.weeklyDay = weeklyDay;
+            }
+        }
 
         // Render the transaction on the calendar
         $('#calendar').fullCalendar('renderEvent', transaction, true);
