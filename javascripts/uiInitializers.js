@@ -1,7 +1,8 @@
-// Inialize radio buttons for transaction type, frequency, and weekly day
+// Inialize radio buttons for transaction type, frequency, weekly day, and monthly date
 $('#addType').buttonset();
 $('#addFrequency').buttonset();
 $('#addWeeklyDay').buttonset();
+$('#addMonthlyDate').buttonset();
 
 // Inialize accordian feature for the transaction adding form
 $("#addForm").accordion({

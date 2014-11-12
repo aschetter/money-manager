@@ -35,7 +35,7 @@ h1 {
     margin-bottom: 1rem;
 }
 
-#addWeeklyDay label {
+#addWeeklyDay label, .dateRow label {
     width: 14.12%;
     margin-bottom: 1rem;
 }
