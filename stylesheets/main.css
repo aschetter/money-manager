@@ -35,6 +35,11 @@ h1 {
     margin-bottom: 1rem;
 }
 
+#addWeeklyDay label {
+    width: 14.12%;
+    margin-bottom: 1rem;
+}
+
 input, #monthButton {
     width: 100%;
     margin-bottom: 1rem;
