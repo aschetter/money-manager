@@ -11,6 +11,7 @@ $('#addButton').on('click', function() {
     var amount = $('#addAmount').val();
     var frequency = $('input[name=addFrequency]:checked').val();
     var weeklyDay = $('input[name=addWeeklyDay]:checked').val();
+    var monthlyDate = $('input[name=addMonthlyDate]:checked').val();
     var start = $('#addStart').val();
     // var end = $'#addEnd').val();
 
@@ -37,16 +38,28 @@ $('#addButton').on('click', function() {
             color: color
         };
 
-        // Test to see if the frequency is weekly
-        if (transaction.frequency == 'weekly') {
+        // Set the specific day/ date for recurring transactions
+        switch(frequency) {
 
-            // Ensure the day value is set
-            if (weeklyDay != '') {
+            // If weekly frequency, ensure the day value is selected and set it
+            case 'weekly':
+                if (weeklyDay != '') {
+                    transaction.weeklyDay = weeklyDay;
+                }
+                break;
 
-                // Set the day value
-                transaction.weeklyDay = weeklyDay;
-            }
+            // If monthly frequency, ensure the date value is selected and set it
+            case 'monthly':
+                if (monthlyDate != '') {
+                    transaction.monthlyDate = monthlyDate;
+                }
+                break;
+
+            default:
+                console.log('No weekly or monthly frequency');
         }
+
+        console.log(transaction);
 
         // Render the transaction on the calendar
         $('#calendar').fullCalendar('renderEvent', transaction, true);
