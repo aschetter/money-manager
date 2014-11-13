@@ -1,177 +1,133 @@
-<!DOCTYPE HTML>
+<h1>Money Manager</h1>
 
-<html>
+<!-- Form to add a transaction -->
+<div id="addForm">
+        <h3>Add a Transaction</h3>
+    <div>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <title>Money Manager</title>
-    <!-- jQuery UI CSS -->
-    <link rel="stylesheet" href="bower_components/jquery-ui/themes/smoothness/jquery-ui.css">
-    <!-- Fullcalendar plug-in CSS -->
-    <link rel="stylesheet" href="bower_components/fullcalendar/dist/fullcalendar.css">
-    <!-- Customized CSS page -->
-    <link rel="stylesheet" href="./stylesheets/main.css">
-</head>
+        <!-- Transaction type radio buttons-->
+        <div id="addType">
+            <input type="radio" id="addIncome" name="addType" value="income"><label id="incomeLabel" for="addIncome">Income</label>
+            <input type="radio" id="addExpense" name="addType" value="expense"><label id="expenseLabel" for="addExpense">Expense</label>
+        </div>
 
-<body>
+        <!-- Transaction frequency radio buttons-->
+        <div id="addFrequency">
+            <input type="radio" id="once" name="addFrequency" value="once"><label for="once">Once</label>
+            <input type="radio" id="weekly" name="addFrequency" value="weekly"><label for="weekly">Weekly</label>
+            <input type="radio" id="monthly" name="addFrequency" value="monthly"><label for="monthly">Monthly</label>
+            <input type="radio" id="quarterly" name="addFrequency" value="quarterly"><label for="quarterly">4x Year</label>
+            <input type="radio" id="semiannually" name="addFrequency" value="semiannually"><label for="semiannually">2x Year</label>
+            <input type="radio" id="annually" name="addFrequency" value="annually"><label for="annually">1x Year</label>
+        </div>
 
-    <h1>Money Manager</h1>
+        <!-- Weekly day radio buttons-->
+        <div id="addWeeklyDay">
+            <input type="radio" id="monday" name="addWeeklyDay" value="monday"><label for="monday">Monday</label>
+            <input type="radio" id="tuesday" name="addWeeklyDay" value="tuesday"><label for="tuesday">Tuesday</label>
+            <input type="radio" id="wednesday" name="addWeeklyDay" value="wednesday"><label for="wednesday">Wednesday</label>
+            <input type="radio" id="thursday" name="addWeeklyDay" value="thursday"><label for="thursday">Thursday</label>
+            <input type="radio" id="friday" name="addWeeklyDay" value="friday"><label for="friday">Friday</label>
+            <input type="radio" id="saturday" name="addWeeklyDay" value="saturday"><label for="saturday">Saturday</label>
+            <input type="radio" id="sunday" name="addWeeklyDay" value="sunday"><label for="sunday">Sunday</label>
+        </div>
 
-    <!-- Form to add a transaction -->
-    <div id="addForm">
-            <h3>Add a Transaction</h3>
-        <div>
+
+        <!-- Monthly date radio buttons-->
+        <div id="addMonthlyDate">
+            <div class="dateRow">
+                <input type="radio" id="1" name="addMonthlyDate" value="1"><label for="1">1</label>
+                <input type="radio" id="2" name="addMonthlyDate" value="2"><label for="2">2</label>
+                <input type="radio" id="3" name="addMonthlyDate" value="3"><label for="3">3</label>
+                <input type="radio" id="4" name="addMonthlyDate" value="4"><label for="4">4</label>
+                <input type="radio" id="5" name="addMonthlyDate" value="5"><label for="5">5</label>
+                <input type="radio" id="6" name="addMonthlyDate" value="6"><label for="6">6</label>
+                <input type="radio" id="7" name="addMonthlyDate" value="7"><label for="7">7</label>
+            </div>
+            <div class="dateRow">
+                <input type="radio" id="8" name="addMonthlyDate" value="8"><label for="8">8</label>
+                <input type="radio" id="9" name="addMonthlyDate" value="9"><label for="9">9</label>
+                <input type="radio" id="10" name="addMonthlyDate" value="10"><label for="10">10</label>
+                <input type="radio" id="11" name="addMonthlyDate" value="11"><label for="11">11</label>
+                <input type="radio" id="12" name="addMonthlyDate" value="12"><label for="12">12</label>
+                <input type="radio" id="13" name="addMonthlyDate" value="13"><label for="13">13</label>
+                <input type="radio" id="14" name="addMonthlyDate" value="14"><label for="14">14</label>
+            </div>
+            <div class="dateRow">
+                <input type="radio" id="15" name="addMonthlyDate" value="15"><label for="15">15</label>
+                <input type="radio" id="16" name="addMonthlyDate" value="16"><label for="16">16</label>
+                <input type="radio" id="17" name="addMonthlyDate" value="17"><label for="17">17</label>
+                <input type="radio" id="18" name="addMonthlyDate" value="18"><label for="18">18</label>
+                <input type="radio" id="19" name="addMonthlyDate" value="19"><label for="19">19</label>
+                <input type="radio" id="20" name="addMonthlyDate" value="20"><label for="20">20</label>
+                <input type="radio" id="21" name="addMonthlyDate" value="21"><label for="21">21</label>
+            </div>
+            <div class="dateRow">
+                <input type="radio" id="22" name="addMonthlyDate" value="22"><label for="22">22</label>
+                <input type="radio" id="23" name="addMonthlyDate" value="23"><label for="23">23</label>
+                <input type="radio" id="24" name="addMonthlyDate" value="24"><label for="24">24</label>
+                <input type="radio" id="25" name="addMonthlyDate" value="25"><label for="25">25</label>
+                <input type="radio" id="26" name="addMonthlyDate" value="26"><label for="26">26</label>
+                <input type="radio" id="27" name="addMonthlyDate" value="27"><label for="27">27</label>
+                <input type="radio" id="28" name="addMonthlyDate" value="28"><label for="28">28</label>
+            </div>
+        </div>
+
+        <!-- Transaction input values -->
+        <div id="addValues">
+            <label for="addTitle">Transaction:</label><input type="text" id="addTitle">
+            <label for="addAmount">Amount:</label><input type="text" id="addAmount">
+            <label for="addStart">Start Date:</label><input type ="text" id="addStart">
+            <!-- <label for="addEnd">End Date:</label><input type ="text" id="addEnd"> -->
+            <button id="addButton">Add Transaction</button>
+        </div>
+    </div>
+</div>
+
+<!-- Button to change day view back to month view -->
+<button id="monthButton">Back to Month</button>
+
+<!-- Calendar container div-->
+<div id="calendar"></div>
+
+<!-- Dialog box to edit a transaction on the calendar -->
+<div id="dialog">
+    <div id="editTabs">
+        <ul>
+            <li><a href="#editTab">Edit</a></li>
+            <li><a href="#deleteTab">Delete</a></li>
+        </ul>
+
+        <!-- Tab to edit an event -->
+        <div id="editTab">
 
             <!-- Transaction type radio buttons-->
-            <div id="addType">
-                <input type="radio" id="addIncome" name="addType" value="income"><label id="incomeLabel" for="addIncome">Income</label>
-                <input type="radio" id="addExpense" name="addType" value="expense"><label id="expenseLabel" for="addExpense">Expense</label>
+            <div id="editType">
+                <input type="radio" id="editIncome" name="editType" value="income"><label class="incomeLabel" for="editIncome">Income</label>
+                <input type="radio" id="editExpense" name="editType" value="expense"><label class="expenseLabel" for="editExpense">Expense</label>
             </div>
 
             <!-- Transaction frequency radio buttons-->
-            <div id="addFrequency">
-                <input type="radio" id="once" name="addFrequency" value="once"><label for="once">Once</label>
-                <input type="radio" id="weekly" name="addFrequency" value="weekly"><label for="weekly">Weekly</label>
-                <input type="radio" id="monthly" name="addFrequency" value="monthly"><label for="monthly">Monthly</label>
-                <input type="radio" id="quarterly" name="addFrequency" value="quarterly"><label for="quarterly">4x Year</label>
-                <input type="radio" id="semiannually" name="addFrequency" value="semiannually"><label for="semiannually">2x Year</label>
-                <input type="radio" id="annually" name="addFrequency" value="annually"><label for="annually">1x Year</label>
-            </div>
-
-            <!-- Weekly day radio buttons-->
-            <div id="addWeeklyDay">
-                <input type="radio" id="monday" name="addWeeklyDay" value="monday"><label for="monday">Monday</label>
-                <input type="radio" id="tuesday" name="addWeeklyDay" value="tuesday"><label for="tuesday">Tuesday</label>
-                <input type="radio" id="wednesday" name="addWeeklyDay" value="wednesday"><label for="wednesday">Wednesday</label>
-                <input type="radio" id="thursday" name="addWeeklyDay" value="thursday"><label for="thursday">Thursday</label>
-                <input type="radio" id="friday" name="addWeeklyDay" value="friday"><label for="friday">Friday</label>
-                <input type="radio" id="saturday" name="addWeeklyDay" value="saturday"><label for="saturday">Saturday</label>
-                <input type="radio" id="sunday" name="addWeeklyDay" value="sunday"><label for="sunday">Sunday</label>
-            </div>
-
-
-            <!-- Monthly date radio buttons-->
-            <div id="addMonthlyDate">
-                <div class="dateRow">
-                    <input type="radio" id="1" name="addMonthlyDate" value="1"><label for="1">1</label>
-                    <input type="radio" id="2" name="addMonthlyDate" value="2"><label for="2">2</label>
-                    <input type="radio" id="3" name="addMonthlyDate" value="3"><label for="3">3</label>
-                    <input type="radio" id="4" name="addMonthlyDate" value="4"><label for="4">4</label>
-                    <input type="radio" id="5" name="addMonthlyDate" value="5"><label for="5">5</label>
-                    <input type="radio" id="6" name="addMonthlyDate" value="6"><label for="6">6</label>
-                    <input type="radio" id="7" name="addMonthlyDate" value="7"><label for="7">7</label>
-                </div>
-                <div class="dateRow">
-                    <input type="radio" id="8" name="addMonthlyDate" value="8"><label for="8">8</label>
-                    <input type="radio" id="9" name="addMonthlyDate" value="9"><label for="9">9</label>
-                    <input type="radio" id="10" name="addMonthlyDate" value="10"><label for="10">10</label>
-                    <input type="radio" id="11" name="addMonthlyDate" value="11"><label for="11">11</label>
-                    <input type="radio" id="12" name="addMonthlyDate" value="12"><label for="12">12</label>
-                    <input type="radio" id="13" name="addMonthlyDate" value="13"><label for="13">13</label>
-                    <input type="radio" id="14" name="addMonthlyDate" value="14"><label for="14">14</label>
-                </div>
-                <div class="dateRow">
-                    <input type="radio" id="15" name="addMonthlyDate" value="15"><label for="15">15</label>
-                    <input type="radio" id="16" name="addMonthlyDate" value="16"><label for="16">16</label>
-                    <input type="radio" id="17" name="addMonthlyDate" value="17"><label for="17">17</label>
-                    <input type="radio" id="18" name="addMonthlyDate" value="18"><label for="18">18</label>
-                    <input type="radio" id="19" name="addMonthlyDate" value="19"><label for="19">19</label>
-                    <input type="radio" id="20" name="addMonthlyDate" value="20"><label for="20">20</label>
-                    <input type="radio" id="21" name="addMonthlyDate" value="21"><label for="21">21</label>
-                </div>
-                <div class="dateRow">
-                    <input type="radio" id="22" name="addMonthlyDate" value="22"><label for="22">22</label>
-                    <input type="radio" id="23" name="addMonthlyDate" value="23"><label for="23">23</label>
-                    <input type="radio" id="24" name="addMonthlyDate" value="24"><label for="24">24</label>
-                    <input type="radio" id="25" name="addMonthlyDate" value="25"><label for="25">25</label>
-                    <input type="radio" id="26" name="addMonthlyDate" value="26"><label for="26">26</label>
-                    <input type="radio" id="27" name="addMonthlyDate" value="27"><label for="27">27</label>
-                    <input type="radio" id="28" name="addMonthlyDate" value="28"><label for="28">28</label>
-                </div>
+            <div id="editFrequency">
+                <input type="radio" id="once" name="editFrequency" value="once"><label for="once">Once</label>
+                <input type="radio" id="weekly" name="editFrequency" value="weekly"><label for="weekly">Weekly</label>
+                <input type="radio" id="monthly" name="editFrequency" value="monthly"><label for="monthly">Monthly</label>
+                <input type="radio" id="quarterly" name="editFrequency" value="quarterly"><label for="quarterly">4x Year</label>
+                <input type="radio" id="semiannually" name="editFrequency" value="semiannually"><label for="semiannually">2x Year</label>
+                <input type="radio" id="annually" name="editFrequency" value="annually"><label for="annually">1x Year</label>
             </div>
 
             <!-- Transaction input values -->
-            <div id="addValues">
-                <label for="addTitle">Transaction:</label><input type="text" id="addTitle">
-                <label for="addAmount">Amount:</label><input type="text" id="addAmount">
-                <label for="addStart">Start Date:</label><input type ="text" id="addStart">
-                <!-- <label for="addEnd">End Date:</label><input type ="text" id="addEnd"> -->
-                <button id="addButton">Add Transaction</button>
+            <div id="editValues">
+                <label for="editTitle">Transaction:</label><input type="text" id="editTitle">
+                <label for="editAmount">Amount:</label><input type="text" id="editAmount">
+                <button id="editButton">Edit Transaction</button>
             </div>
         </div>
-    </div>
 
-    <!-- Button to change day view back to month view -->
-    <button id="monthButton">Back to Month</button>
-
-    <!-- Calendar container div-->
-    <div id="calendar"></div>
-
-    <!-- Dialog box to edit a transaction on the calendar -->
-    <div id="dialog">
-        <div id="editTabs">
-            <ul>
-                <li><a href="#editTab">Edit</a></li>
-                <li><a href="#deleteTab">Delete</a></li>
-            </ul>
-
-            <!-- Tab to edit an event -->
-            <div id="editTab">
-
-                <!-- Transaction type radio buttons-->
-                <div id="editType">
-                    <input type="radio" id="editIncome" name="editType" value="income"><label class="incomeLabel" for="editIncome">Income</label>
-                    <input type="radio" id="editExpense" name="editType" value="expense"><label class="expenseLabel" for="editExpense">Expense</label>
-                </div>
-
-                <!-- Transaction frequency radio buttons-->
-                <div id="editFrequency">
-                    <input type="radio" id="once" name="editFrequency" value="once"><label for="once">Once</label>
-                    <input type="radio" id="weekly" name="editFrequency" value="weekly"><label for="weekly">Weekly</label>
-                    <input type="radio" id="monthly" name="editFrequency" value="monthly"><label for="monthly">Monthly</label>
-                    <input type="radio" id="quarterly" name="editFrequency" value="quarterly"><label for="quarterly">4x Year</label>
-                    <input type="radio" id="semiannually" name="editFrequency" value="semiannually"><label for="semiannually">2x Year</label>
-                    <input type="radio" id="annually" name="editFrequency" value="annually"><label for="annually">1x Year</label>
-                </div>
-
-                <!-- Transaction input values -->
-                <div id="editValues">
-                    <label for="editTitle">Transaction:</label><input type="text" id="editTitle">
-                    <label for="editAmount">Amount:</label><input type="text" id="editAmount">
-                    <button id="editButton">Edit Transaction</button>
-                </div>
-            </div>
-
-            <!-- Tab to delete an event -->
-            <div id="deleteTab">
-                <button id="deleteButton">Delete Transaction</button>
-            </div>
+        <!-- Tab to delete an event -->
+        <div id="deleteTab">
+            <button id="deleteButton">Delete Transaction</button>
         </div>
     </div>
-
-    <!-- jQuery -->
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-    <!-- jQuery UI-->
-    <script type="text/javascript" src="bower_components/jquery-ui/jquery-ui.js"></script>
-    <!-- Moment JS -->
-    <script type="text/javascript" src="bower_components/moment/moment.js"></script>
-    <!-- Fullcallendar JS -->
-    <script type="text/javascript" src="bower_components/fullcalendar/dist/fullcalendar.js"></script>
-    <!-- Development transactions list JS page -->
-    <script type="text/javascript" src="./javascripts/transactions.js"></script>
-    <!-- Customized calendar JS page -->
-    <script type="text/javascript" src="./javascripts/calendar.js"></script>
-    <!-- jQuery UI initializers JS page -->
-    <script type="text/javascript" src="./javascripts/uiInitializers.js"></script>
-    <!-- Add transaction JS page -->
-    <script type="text/javascript" src="./javascripts/addTransaction.js"></script>
-    <!-- Edit transaction JS page -->
-    <script type="text/javascript" src="./javascripts/editTransaction.js"></script>
-    <!-- Delete transaction JS page -->
-    <script type="text/javascript" src="./javascripts/deleteTransaction.js"></script>
-    <!-- Day view button JS page -->
-    <script type="text/javascript" src="./javascripts/dayView.js"></script>
-
-</body>
-
-</html>
+</div>
