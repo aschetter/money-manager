@@ -3,7 +3,7 @@
 $('#addButton').on('click', function() {
 
     // Development random id generator
-    var id = Math.floor(Math.random()*1001);
+    // var id = Math.floor(Math.random()*1001);
 
     // Pull form input values
     var title = $('#addTitle').val();
@@ -28,7 +28,7 @@ $('#addButton').on('click', function() {
 
         // Create transaction object
         var transaction = {
-            id: id,
+            // id: id,
             title: title + ': $' + amount,
             type: type,
             amount: amount,
@@ -60,6 +60,16 @@ $('#addButton').on('click', function() {
         }
 
         console.log(transaction);
+
+        $.ajax({
+            type: 'POST',
+            url: 'http://0.0.0.0:3000/events',
+            data: transaction,
+            success: function(data) {
+                console.log(data)
+            },
+            // dataType: 'JSON'
+        });
 
         // Render the transaction on the calendar
         $('#calendar').fullCalendar('renderEvent', transaction, true);
