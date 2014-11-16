@@ -1,6 +1,6 @@
-class CreateEvents < ActiveRecord::Migration
+class CreateTransactions < ActiveRecord::Migration
   def change
-    create_table :events do |t|
+    create_table :transactions do |t|
       t.string :title
       t.string :type
       t.float  :amount
@@ -8,6 +8,8 @@ class CreateEvents < ActiveRecord::Migration
       t.string :weeklyDay
       t.string :monthlyDate
       t.date   :start
+
+      t.timestamps
     end
   end
 end
