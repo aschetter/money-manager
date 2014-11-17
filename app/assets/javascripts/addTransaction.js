@@ -2,12 +2,9 @@
 // Add a transaction on the calendar
 $('#addButton').on('click', function() {
 
-    // Development random id generator
-    // var id = Math.floor(Math.random()*1001);
-
     // Pull form input values
     var title = $('#addTitle').val();
-    var type = $('#input[name=addType]:checked').val()
+    var type = $('input[name=addType]:checked').val()
     var amount = $('#addAmount').val();
     var frequency = $('input[name=addFrequency]:checked').val();
     var weeklyDay = $('input[name=addWeeklyDay]:checked').val();
@@ -61,7 +58,7 @@ $('#addButton').on('click', function() {
                 console.log('No weekly or monthly frequency');
         }
 
-        console.log(transaction);
+        // console.log(transaction);
 
         $.ajax({
             type: 'POST',
