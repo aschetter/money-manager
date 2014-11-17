@@ -4,7 +4,7 @@ $('#addButton').on('click', function() {
 
     // Pull form input values
     var title = $('#addTitle').val();
-    var type = $('input[name=addType]:checked').val()
+    var category = $('input[name=addCategory]:checked').val()
     var amount = $('#addAmount').val();
     var frequency = $('input[name=addFrequency]:checked').val();
     var weeklyDay = $('input[name=addWeeklyDay]:checked').val();
@@ -14,13 +14,13 @@ $('#addButton').on('click', function() {
     // var end = $'#addEnd').val();
 
     // Ensure all values are set
-    if (title != '' && type != '' && amount != '' && frequency != '' && start != '') {
+    if (title != '' && category != '' && amount != '' && frequency != '' && start != '') {
     
         // Set the color attribute
         var color = '';
-        if (type == 'income') {
+        if (category == 'income') {
             color = 'green';
-        } else if (type == 'expense') {
+        } else if (category == 'expense') {
             color = 'red';
         }
 
@@ -29,7 +29,7 @@ $('#addButton').on('click', function() {
             // id: id,
             authenticity_token: authenticity_token,
             title: title + ': $' + amount,
-            type: type,
+            category: category,
             amount: amount,
             frequency: frequency,
             start: start,
@@ -58,8 +58,7 @@ $('#addButton').on('click', function() {
                 console.log('No weekly or monthly frequency');
         }
 
-        // console.log(transaction);
-
+        // Add the transaction in the DB
         $.ajax({
             type: 'POST',
             url: 'transactions',

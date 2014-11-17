@@ -1,5 +1,5 @@
 // Inialize radio buttons for transaction type, frequency, weekly day, and monthly date
-$('#addType').buttonset();
+$('#addCategory').buttonset();
 $('#addFrequency').buttonset();
 $('#addWeeklyDay').buttonset();
 $('#addMonthlyDate').buttonset();

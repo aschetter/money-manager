@@ -10,7 +10,7 @@ h1 {
     margin-bottom: 1rem;
 }
 
-#editType label, #addType label, #editFrequency label {
+#editType label, #addCategory label, #editFrequency label {
     width: 50%;
     margin-bottom: 1rem;
 }

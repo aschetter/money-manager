@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117012622) do
+ActiveRecord::Schema.define(version: 20141117020806) do
 
   create_table "transactions", force: true do |t|
     t.string   "title"
-    t.string   "type"
+    t.string   "category"
     t.float    "amount"
     t.string   "frequency"
     t.string   "weeklyDay"
