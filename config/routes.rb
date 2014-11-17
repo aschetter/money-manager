@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root 'home_page#index'
 
-  post 'events' => 'events#create'
+  post 'transactions' => 'transactions#create'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
